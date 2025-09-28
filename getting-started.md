@@ -6,7 +6,7 @@ permalink: /getting-started/
 
 # Getting Started
 Here i'll show you the first steps on how to install the resource and start it.
-When downloaded, the resource will be presented inside its own folder `[BrynhildrInventory]` containing both the `assets` folder and the `API script` folder. 
+When downloaded, the resource will be presented inside its own folder `[Brynhildr]` containing both the `assets` folder and the `API` folder, along with a test script to check, learn, and take examples. 
 
 First of all, keep the `assets folder` containing the scaleform (gfx) and its textures (ytd) in a separate folder than the `API code`, this will make sure that in case of restart of the API, the scaleform won't be affected.
 
@@ -17,19 +17,20 @@ Make sure that the gfx and the ytd are always in the same folder, as they're in 
 
 - FiveM server
 - Lua 5.4 (integrated in FiveM)
-- Basic coding and logic skills
+- Basic coding and logic skills (to make your own inventory)
 
 ## Installation
 
-1. Copy the `BrynhildrInventory` resource into your FiveM `resources/` folder or any sub-folder you want.
+1. Copy the `[Brynhildr]` resource into your FiveM `resources/` folder or any sub-folder you want.
 2. Add it to your `server.cfg`:
    ```
-   ensure BrynhildrInventory_assets # In case you decide to keep them in their own resource, you can put these files in any asset folder you have as long as the gfx and the ytd stay together
-   ensure BrynhildrInventory
+   ensure brynhildr_assets # In case you decide to keep them in their own resource. You can also move these files in any asset folder you have as long as the gfx and the ytd stay together.
+   ensure brynhildr_api
    ```
 3. There are 2 ways you can use the lua API library.
-  - First option: Place your `BrynhildrInventory.lua` in each resource that uses it and start it before any other client file.
-  - Second option: Leave it in its own `BrynhildrInventory` resource and start it before the other resources. When you want to use it in any resource simply add `"@BrynhildrInventory/BrynhildrInventory.lua"`, in the resource manifest in the client_scripts section before anything else.
+  - First option: Place the file `API.lua` in each resource that uses it (you don't need to start `brynhildr_api` in this case as its api is moved across resources).
+  - Second option: Leave it in its own `brynhildr_api` resource and start it before any other resources using it. When you want to use it in any resource simply add `"@brynhildr_api/API.lua"`, in the resource manifest in the client_scripts section before anything else. 
+    - Check the `brynhildr_test` script `fxmanifest.lua` for a better look.
 
 {: .note }
 > I personally suggest the second option for 2 main reasons: 
