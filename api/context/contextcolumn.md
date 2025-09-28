@@ -17,6 +17,7 @@ Like the **Columns** section, it extends `BaseColumn`.
 | Name | Type | Access | Description |
 |------|------|--------|-------------|
 | `IsVisible` | `boolean` | public | Indicates whether the context column is currently visible. |
+| `OnItemSelect` | `func(item, itemIndex, qttySelected, remainingQtty)` | public | Callback called when a ContextItem is selected. `QttySelected, remainingQtty` may be nil for items without quantity. |
 
 **Methods**
 
@@ -36,5 +37,7 @@ Like the **Columns** section, it extends `BaseColumn`.
 **Usage Notes:**
 - It's automatically shown when an item is selected
 - If no [ContextItem](./contextitem.md) is added to it, the column is not shown and item is directly selected with a OnItemSelect event fired from the tab.
+- When an item is selected 2 events are fired.. context column's `OnItemSelect` event and item's `Selected` event. 
+  - First one is generalistic and returns the item and its index along its data, the second one is specific for the selected item only.
 
 ---

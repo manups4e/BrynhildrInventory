@@ -94,3 +94,5 @@ inv:Visible(true)
 - The ProcessControl() method internally handles navigation (LB/RB), back actions, and delegates input handling to the current tab.
 - The ProcessControl() method **MUST** be called on frame when drawing the scaleform to allow handling controls.
 - The inventory uses Scaleform (BrynhildrInventory.gfx) for its rendering, and tabs are populated through their own Populate() and ShowColumns() methods.
+- The inventory automatically requests and initializes the scaleform when Visible(true) is called.
+- Only one inventory at a time is allowed, if more than one are drawn, the latest one will be prioritized on the others.
