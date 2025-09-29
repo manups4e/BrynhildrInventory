@@ -27,6 +27,7 @@ Make sure that the gfx and the ytd are always in the same folder, as they're in 
    ensure brynhildr_assets # In case you decide to keep them in their own resource. You can also move these files in any asset folder you have as long as the gfx and the ytd stay together.
    ensure brynhildr_api
    ```
+   - You can also do `ensure [Brynhildr]` to ensure everything inside the folder without specifying it. (you can delete the test script if you don't use it)
 3. There are 2 ways you can use the lua API library.
   - First option: Place the file `API.lua` in each resource that uses it (you don't need to start `brynhildr_api` in this case as its api is moved across resources).
   - Second option: Leave it in its own `brynhildr_api` resource and start it before any other resources using it. When you want to use it in any resource simply add `"@brynhildr_api/API.lua"`, in the resource manifest in the client_scripts section before anything else. 
